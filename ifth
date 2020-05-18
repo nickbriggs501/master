@@ -1,0 +1,26 @@
+#!/bin/bash
+
+
+# The read n part is interchangeable it was just
+# an easy example because we just talked about it.
+# if (userinput = then do whatever)the commands are.
+# make sure you indent the commands by two spaces on
+# each line and it will follow everything between if
+# and fi allowing many scripts to be used together.
+echo " "
+echo " "
+echo "please type cat"
+read n
+if [ $n = cat ]
+then
+  echo "Thats a pussy" 
+  sleep 2
+  pwd
+  ls
+fi
+sleep 2
+echo "and then continue on or end the script"
+
+sleep 2
+echo "and thats it"
+sleep 2

@@ -1,0 +1,9 @@
+tput setaf 1; echo "This File Is Locked"
+echo " "
+echo "Enter Password"
+
+read n
+case $n in
+  sudo) echo "Unlocking File..."; sleep 3; echo "File Unlocked..."; sleep 2; bash $HOME/projects/new.sh;;
+  *) echo "FUCK OFF!"; sleep 3;;
+esac

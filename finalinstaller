@@ -1,0 +1,113 @@
+#!/bin/sh
+echo 'welcome'
+echo 'please select your system'
+echo ' '
+echo ' 1) Linux'
+echo ' 2) Termux'
+echo ' 3) other (if sudo is required to install)'
+echo ' 4) other (if sudo is not required to install'
+echo ' x) exit'
+read os
+case $os in
+  1) echo 'starting automatic update and upgrade';
+     sudo apt update;
+     sudo apt -y upgrade;
+     sudo apt -y autoremove;
+     echo 'done... installing core packages';
+     sudo apt -y install zsh git wget curl nano vim python python2 dialog figlet toilet cowsay w3m lynx neofetch htop cmatrix sl;
+     echo 'done... installing ui packages';
+     sudo apt -y install plank oneko conky-manager conky-all zip zenity synaptic vlc xrdp;
+     echo 'done... install tools?';
+     echo 'nmap hydra metasploit and aircrack';
+     echo 'y for yes or n for no';
+     read l
+     case $l in
+       y) sudo apt -y install nmap hydra metasploit-framework aircrack-ng;;
+       n) echo 'okay';;
+     esac
+     echo 'install libreoffice?';
+     echo 'y for yes n for no';
+     read n
+     case $n in
+       y) sudo apt install libreoffice;;
+       n) echo 'okay';;
+     esac
+     echo 'install terminal pack?';
+     echo 'it contains...';
+     echo 'tilix, tilda, gnome-terminal, terminator guake';
+     echo 'y for yes n for no';
+     read m
+     case $m in
+       y) sudo apt -y install libreoffice guake tilix tilda gnome-terminal terminator;
+          echo 'done...';;
+       n) echo 'okay';;
+     esac
+     echo 'all tasks completed...';
+     sleep 3;;
+  2) echo 'starting automatic update and upgrade';
+     apt update;
+     apt -y upgrade;
+     apt -y autoremove;
+     apt -y install root-repo x11-repo unstable-repo game-repo;
+     echo 'done... installing core packages';
+     apt -y install zsh git wget curl nano vim python python2 dialog figlet toilet cowsay w3m lynx neofetch htop cmatrix sl libcaca;
+     echo 'done...';
+     echo 'install tools?';
+     echo 'y for yes or n for no';
+     read h
+     case $h in
+       y) apt -y install nmap hydra net-tools termux-api metasploit;;
+       n) echo 'okay';;
+     esac
+     echo 'done...';
+     sleep 3;;
+  3) echo 'starting update and upgrade';
+     sudo apt update;
+     sudo apt -y upgrade;
+     echo 'done... installing core packages';
+     sudo apt -y install zsh git wget curl nano vim python python2 dialog figlet toilet cowsay w3m lynx neofetch htop cmatrix sl;
+     echo 'done...';
+     echo 'install tools?';
+     echo 'nmap hydra metasploit aircrack-ng';
+     echo 'y for yes or n for no';
+     read j
+     case $j in
+       y) sudo apt -y install nmap hydra metasploit metasploit-framework aircrack-ng;;
+       n) echo 'okay';;
+     esac
+     echo 'done...';
+     sleep 3;;
+  4) echo 'starting update and upgrade';
+     apt update;
+     apt -y upgrade;
+     echo 'done... installing core packages';
+     apt -y install zsh git wget curl nano vim python python2 dialog figlet toilet cowsay w3m lynx neofetch htop cmatrix sl;
+     echo 'done...';
+     echo 'install tools?';
+     echo 'nmap hydra metasploit aircrack-ng';
+     echo 'y for yes or n for no';
+     read k
+     case $k in
+       y) apt -y install nmap hydra metasploit metasploit-framework aircrack-ng;;
+       n) echo 'okay';;
+     esac
+     echo 'done all tasks...';
+     sleep 3;;
+  x) exit;;
+esac
+if [ $os == 1 ]
+then
+  echo 'do you want to install the xfce desktop? (warning linux only)';
+  echo 'select y for yes or n for no...';
+  read n
+  case $n in
+    y) sudo apt install xrdp xfce4;;
+    n) echo 'okay';;
+  esac
+fi
+echo 'installation script completed...'
+echo 'finalizing system changes...' 
+sleep 3
+echo 'done...'
+echo 'thank you for using our installer... exiting...'
+sleep 3
