@@ -1,8 +1,0 @@
-echo 'start'
-dialog --yesno 'DO YOU WANT..,' 0 0
-read n
-case $n in
-  1) exit;;
-  0) echo 'pass';;
-esac
-echo 'done'
