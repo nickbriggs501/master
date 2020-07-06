@@ -1,2 +1,0 @@
-#!/bin/zsh
-termux-fingerprint -t "Biometric Authorization Is Required" -s "Security Program Active"
