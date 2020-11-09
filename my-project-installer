@@ -1,0 +1,88 @@
+#!/bin/sh
+clear
+read -p "ready? y/n " user_go
+if [ $user_go == y ]
+then
+  termux-setup-storage
+  touch .hushlogin
+  apt update
+  apt upgrade -y
+  apt full-upgrade -y
+  apt dist-upgrade -y
+  apt -y install root-repo x11-repo unstable-repo game-repo
+  apt -y install zsh git wget curl figlet toilet cowsay w3m lynx neofetch htop cmatrix sl libcaca
+  apt -y install neofetch nmap hydra net-tools termux-api metasploit
+  apt -y install aircrack-ng
+  apt -y install python cmatrix termux-tools
+  apt -y install python2
+  apt -y install openssh
+  apt -y install php
+  apt -y install dialog
+  pip install lolcat
+  cd $HOME
+  mkdir scripts
+  mkdir projects
+  cp $HOME/master/shebanged-nano.sh $HOME/scripts
+  cp $HOME/master/shebanged.sh $HOME/scripts
+  cp $HOME/master/shebang.sh $HOME/scripts
+  cp $HOME/master/ngrok-stable-linux-arm.zip $HOME
+  cd $HOME
+  unzip ngrok-stable-linux-arm.zip
+  sleep 1
+  git clone https://github.com/ciku370/hasher
+  sleep 1
+  git clone git://github.com/htr-tech/host.git
+  sleep 1
+  git clone https://github.com/noob-hackers/lazybee
+  sleep 1
+  git clone https://github.com/magnumripper/JohnTheRipper.git
+  sleep 1
+  git clone https://github.com/Ranginang67/Firecrack
+  sleep 1
+  cd Firecrack
+  pip2 install -r requirements.txt
+  sleep 1
+  cd $HOME
+  wget https://raw.githubusercontent.com/ExpertAnonymous/PhoneInfoga/master/phoneinfoga.sh
+  sleep 1
+  git clone https://github.com/kali-linux-tutorial/lockphish
+  cd lockphish
+  sudo chmod +x lockphish.sh
+  sleep 1
+  cd $HOME
+  sleep 1
+  git clone https://github.com/noob-hackers/hacklock
+  sleep 1
+  git clone https://github.com/jaykali/maskphish
+  sleep 1
+  git clone https://github.com/Mebus/cupp/blob/master
+  sleep 1
+  git clone git://github.com/htr-tech/nexphisher.git
+  cd nexphisher
+  bash tmux_setup
+  cd $HOME
+  sleep 3
+  sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
+  sleep 2
+  read -p "proceed? y/n " user_ready
+  if [ $user_ready == y ]
+  then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    sleep 2
+    cd $HOME
+  sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting)/' .zshrc
+  sleep 1
+  sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="simple"/' .zshrc
+  sleep 1
+  fi
+  if [ $user_ready == n ]
+  then
+    break
+  fi
+  cp $HOME/master/zshr $HOME
+  mv $HOME/zshr .zshrc
+fi
+if [ $user_go == n ]
+then
+  exit
+fi
