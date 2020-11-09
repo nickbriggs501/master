@@ -1,7 +1,5 @@
 #!/bin/sh
 clear
-cp -r $HOME/master/project-files $HOME
-cd $HOME
 termux-setup-storage
 touch .hushlogin
 apt update
@@ -21,10 +19,10 @@ pip install lolcat
 cd $HOME
 mkdir scripts
 mkdir projects
-cp $HOME/project-files/shebanged-nano.sh $HOME/scripts
-cp $HOME/project-files/shebanged.sh $HOME/scripts
-cp $HOME/project-files/shebang.sh $HOME/scripts
-cp $HOME/project-files/ngrok-stable-linux-arm.zip $HOME
+cp $HOME/master/shebanged-nano.sh $HOME/scripts
+cp $HOME/master/shebanged.sh $HOME/scripts
+cp $HOME/master/shebang.sh $HOME/scripts
+cp $HOME/master/ngrok-stable-linux-arm.zip $HOME
 cd $HOME
 unzip ngrok-stable-linux-arm.zip
 sleep 1
@@ -78,5 +76,5 @@ if [ $user_ready == n ]
 then
   break
 fi
-cp $HOME/project-files/zshr $HOME
+cp $HOME/master/zshr $HOME
 mv $HOME/zshr .zshrc
