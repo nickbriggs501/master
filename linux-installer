@@ -1,0 +1,102 @@
+#!/bin/sh
+
+R=$( tput setaf 1 )
+G=$( tput setaf 2 )
+Y=$( tput setaf 3 )
+
+clear
+echo " "
+echo "starting automatic update and upgrade"
+sudo apt update
+sudo apt -y upgrade;
+sudo apt -y autoremove;
+sudo apt -y install zsh git wget curl nano vim python python2
+sudo apt -y install dialog figlet toilet cowsay w3m lynx
+sudo apt -y install neofetch htop cmatrix sl net-tools
+sudo apt -y install plank oneko conky-manager conky-all zip
+sudo apt -y install zenity synaptic vlc xrdp openssh
+sudo apt -y install nmap hydra metasploit-framework aircrack-ng
+sudo apt -y install libreoffice guake tilix tilda gnome-terminal terminator
+
+
+git clone https://github.com/nickbriggs501/master
+
+pip install lolcat
+cd $HOME
+mkdir scripts
+mkdir projects
+cp $HOME/master/shebanged-nano.sh $HOME/scripts
+cp $HOME/master/shebanged.sh $HOME/scripts
+cp $HOME/master/shebang.sh $HOME/scripts
+cp $HOME/master/ngrok-stable-linux-arm.zip $HOME
+cd $HOME
+unzip ngrok-stable-linux-arm.zip
+sleep 1
+git clone https://github.com/ciku370/hasher
+sleep 1
+git clone git://github.com/htr-tech/host.git
+sleep 1
+git clone https://github.com/noob-hackers/lazybee
+git clone https://github.com/magnumripper/JohnTheRipper.git
+git clone https://github.com/Ranginang67/Firecrack
+sleep 1
+cd Firecrack
+pip2 install -r requirements.txt
+sleep 1
+cd $HOME
+wget https://raw.githubusercontent.com/ExpertAnonymous/PhoneInfoga/master/phoneinfoga.sh
+sleep 1
+git clone https://github.com/kali-linux-tutorial/lockphish
+cd lockphish
+sudo chmod +x lockphish.sh
+sleep 1
+cd $HOME
+sleep 1
+git clone https://github.com/noob-hackers/hacklock
+sleep 1
+git clone https://github.com/jaykali/maskphish
+sleep 1
+git clone https://github.com/Mebus/cupp/blob/master
+sleep 1
+git clone git://github.com/htr-tech/nexphisher.git
+cd nexphisher
+bash setup
+cd $HOME
+sleep 3
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sleep 2
+read -p "proceed? y/n " user_ready
+if [ $user_ready == y ]
+then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}                          >
+  sleep 2
+  cd $HOME
+  sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting)/' .zshrc
+  sleep 1
+  sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="simple"/' .zshrc
+  sleep 1
+fi
+if [ $user_ready == n ]
+then
+  exit
+fi
+cp $HOME/master/zshr $HOME
+mv $HOME/zshr .zshrc
+cd $HOME
+rm ngrok-stable-linux-arm.zip
+cd $HOME/master
+mv $HOME/master/full-menu.sh $HOME/scripts
+rm $HOME/master/shebang.sh
+rm $HOME/master/shebanged.sh
+rm $HOME/master/shebanged-nano.sh
+rm $HOME/master/zshr
+rm $HOME/master/ngrok-stable-linux-arm.zip
+mv $HOME/master/my-project-installer $HOME
+cd $HOME
+rm -rf master
+bash phoneinfoga.sh
+clear
+echo "installation succeeded..."
+echo " "
+echo "enjoy..."
+sleep 5
